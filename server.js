@@ -41,7 +41,7 @@ function getProjectData(req, res) {
 }
 
 // Setup Server
-const port = 80;
+const port = 8000;
 const server = app.listen(port, () => {
     console.log(`server port: ${port}`);
 });

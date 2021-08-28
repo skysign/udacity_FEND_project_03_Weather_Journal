@@ -1,13 +1,14 @@
 // Personal API Key for OpenWeatherMap API
 const APIURL = 'http://api.openweathermap.org/data/2.5/weather';
 // ?q={city name}&appid={API key}
-const APIKey = 'c5c0688d265d12c69d78a2fcca878ada';
+const APIKey = '&appid=c5c0688d265d12c69d78a2fcca878ada&units=imperial';
+
 
 /* Global Variables */
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+let newDate = (d.getMonth()+1)+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 
 // Event listener to add function to existing HTML DOM element
@@ -43,7 +44,7 @@ function clickBtnGenerate(event) {
 
 /* Function to GET Web API Data*/
 const callWeatherAPI = async(zip) => {
-    const res = await fetch(`${APIURL}?q=${zip}&appid=${APIKey}`);
+    const res = await fetch(`${APIURL}?q=${zip}${APIKey}`);
     try {
         const weatherData = await res.json();
         console.log('callWeatherAPI', weatherData);
